@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Carpenter Home Renovation | Kitchen, Bathroom & Basement Renovations Hamilton</title>
-    <meta name="description" content="Kitchen, bathroom, and basement renovations for homeowners in Hamilton, Burlington, and Niagara. One contractor, one call, no hassle. Get a free quote from Elite Carpenter.">
+    <title>Elite Carpenter Home Renovation | Kitchen, Bathroom & Basement Renovation Hamilton</title>
+    <meta name="description" content="Kitchen, bathroom, and basement renovation for homeowners in Hamilton, Burlington, and Niagara. One contractor, one call, no hassle. Get a free quote from Elite Carpenter.">
     <meta name="keywords" content="renovation contractor Hamilton, kitchen renovation Hamilton, bathroom renovation Hamilton, basement finishing Hamilton, flooring installation Hamilton, home renovation Niagara">
     <meta name="author" content="Elite Carpenter Home Renovation">
     <meta name="robots" content="index, follow">
@@ -1535,7 +1535,7 @@
             <div class="hero-content">
                 <div class="hero-badge">Hamilton & Niagara Region</div>
                 <h1>Home Renovation in <span>Hamilton</span> Done Right</h1>
-                <p class="hero-subtitle">Kitchen, bathroom, and basement renovations for families across Hamilton, Burlington, and the Niagara region. One contractor. One call. No hassle.</p>
+                <p class="hero-subtitle">Kitchen, bathroom, and basement renovation for families across Hamilton, Burlington, and the Niagara region. One contractor. One call. No hassle.</p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
                     <a href="tel:4165264116" class="btn btn-secondary">Call Now</a>
@@ -1616,7 +1616,7 @@
                             <polyline points="9 22 9 12 15 12 15 22"/>
                         </svg>
                     </div>
-                    <h3>Kitchen Renovations</h3>
+                    <h3>Kitchen Renovation</h3>
                     <p>From outdated to outstanding. Full kitchen remodels including cabinets, countertops, flooring, and layout changes.</p>
                     <a href="kitchen.html" class="service-link">
                         Learn More
@@ -1635,7 +1635,7 @@
                             <path d="M15 7h3a2 2 0 012 2v12"/>
                         </svg>
                     </div>
-                    <h3>Bathroom Renovations</h3>
+                    <h3>Bathroom Renovation</h3>
                     <p>Transform your bathroom into a space you actually enjoy. New tile, vanities, fixtures, and layouts that work.</p>
                     <a href="bathroom.html" class="service-link">
                         Learn More
@@ -1653,7 +1653,7 @@
                             <line x1="12" y1="12" x2="12" y2="16"/>
                         </svg>
                     </div>
-                    <h3>Basement Renovations</h3>
+                    <h3>Basement Renovation</h3>
                     <p>Turn your unfinished basement into usable living space. Rec rooms, offices, gyms, or rental units.</p>
                     <a href="basement.html" class="service-link">
                         Learn More
@@ -1948,7 +1948,7 @@
                 <h2>Request a Free Quote</h2>
                 <p>Tell us about your project and we'll get back to you within 24 hours.</p>
             </div>
-            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                 <!-- Web3Forms Access Key - Replace with your actual key -->
                 <input type="hidden" name="access_key" value="8bcff1c7-191d-424f-9b61-2dac4863641b">
                 <input type="hidden" name="subject" value="New Quote Request - Elite Carpenter">
@@ -1957,17 +1957,23 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" name="first_name" required>
                     </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name *</label>
+                        <input type="text" id="last-name" name="last_name" required>
+                    </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group">
                         <label for="phone">Phone *</label>
                         <input type="tel" id="phone" name="phone" required>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -2022,7 +2028,7 @@
                         </div>
                         <span class="logo-text">Elite <span>Carpenter</span></span>
                     </a>
-                    <p>Kitchen, bathroom, and basement renovations for homeowners in Hamilton and the Niagara region. One contractor, one call, no hassle.</p>
+                    <p>Kitchen, bathroom, and basement renovation for homeowners in Hamilton and the Niagara region. One contractor, one call, no hassle.</p>
                     <div class="footer-contact-info">
                         <p>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2042,9 +2048,9 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="kitchen.html">Kitchen Renovations</a></li>
-                        <li><a href="bathroom.html">Bathroom Renovations</a></li>
-                        <li><a href="basement.html">Basement Renovations</a></li>
+                        <li><a href="kitchen.html">Kitchen Renovation</a></li>
+                        <li><a href="bathroom.html">Bathroom Renovation</a></li>
+                        <li><a href="basement.html">Basement Renovation</a></li>
                         <li><a href="flooring.html">Flooring Installation</a></li>
                     </ul>
                 </div>
@@ -2116,6 +2122,28 @@
                 }
             });
         });
+
+        // Handle form submission with SMS notifications
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+
+                // Send SMS notification in background (don't wait for it)
+                fetch('/api/send-sms', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                }).catch(err => console.log('SMS notification failed:', err));
+
+                // Submit to Web3Forms normally
+                this.submit();
+            });
+        }
     </script>
 </body>
 </html>
