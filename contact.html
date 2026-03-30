@@ -237,7 +237,7 @@
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
 
-        // Handle form submission with SMS notifications
+        // Handle form submission with WhatsApp/Telegram notifications
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
@@ -247,12 +247,13 @@
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData);
 
-                // Send SMS notification in background (don't wait for it)
-                fetch('/api/send-sms', {
+                // Send FREE Telegram notification in background (don't wait for it)
+                // Switch to /api/whatsapp-notify for paid WhatsApp option
+                fetch('/api/telegram-notify', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
-                }).catch(err => console.log('SMS notification failed:', err));
+                }).catch(err => console.log('Push notification failed:', err));
 
                 // Submit to Web3Forms normally
                 this.submit();
