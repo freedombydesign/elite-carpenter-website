@@ -247,15 +247,20 @@
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData);
 
-                // Send FREE Telegram notification in background (don't wait for it)
+                // Send FREE Telegram notification and WAIT for it to complete
                 // Switch to /api/whatsapp-notify for paid WhatsApp option
-                fetch('/api/telegram-notify', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                }).catch(err => console.log('Push notification failed:', err));
+                try {
+                    await fetch('/api/telegram-notify', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    console.log('Telegram notification sent');
+                } catch (err) {
+                    console.log('Push notification failed:', err);
+                }
 
-                // Submit to Web3Forms normally
+                // Now submit to Web3Forms
                 this.submit();
             });
         }
