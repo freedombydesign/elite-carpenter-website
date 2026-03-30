@@ -2128,27 +2128,39 @@
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
+                console.log('Form submitted, sending Telegram notification...');
 
                 // Get form data
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData);
+                console.log('Form data:', data);
 
                 // Send FREE Telegram notification and WAIT for it to complete
                 // Switch to /api/whatsapp-notify for paid WhatsApp option
                 try {
-                    await fetch('/api/telegram-notify', {
+                    const response = await fetch('/api/telegram-notify', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
                     });
-                    console.log('Telegram notification sent');
+                    const result = await response.json();
+                    console.log('Telegram API response:', result);
+
+                    if (result.success) {
+                        console.log('✅ Telegram notification sent successfully!');
+                    } else {
+                        console.error('❌ Telegram notification failed:', result);
+                    }
                 } catch (err) {
-                    console.log('Push notification failed:', err);
+                    console.error('❌ Push notification error:', err);
                 }
 
                 // Now submit to Web3Forms
+                console.log('Submitting to Web3Forms...');
                 this.submit();
             });
+        } else {
+            console.error('Contact form not found!');
         }
     </script>
 </body>
