@@ -463,66 +463,14 @@
             position: relative;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 3rem;
         }
 
         .hero-image-main img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        /* Logo graphic - house icon */
-        .logo-graphic {
-            width: 200px;
-            height: 160px;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .logo-graphic svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--color-white);
-            stroke-width: 3;
-            fill: none;
-        }
-
-        /* Logo text styling */
-        .logo-text-large {
-            text-align: center;
-            color: var(--color-white);
-            line-height: 1.1;
-        }
-
-        .logo-text-large .line1 {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            display: block;
-        }
-
-        .logo-text-large .line2 {
-            font-family: var(--font-body);
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            display: block;
-            margin-top: 0.5rem;
-        }
-
-        .logo-text-large .line3 {
-            font-family: var(--font-display);
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            display: block;
-            margin-top: 0.5rem;
         }
 
         .hero-image-placeholder {
@@ -1625,21 +1573,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-main">
-                    <div class="logo-graphic">
-                        <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                            <!-- House outline -->
-                            <path d="M100 20 L20 80 L20 140 L80 140 L80 100 L120 100 L120 140 L180 140 L180 80 Z" />
-                            <!-- Door -->
-                            <rect x="85" y="110" width="30" height="30" />
-                            <!-- Chimney -->
-                            <rect x="140" y="40" width="15" height="40" />
-                        </svg>
-                    </div>
-                    <div class="logo-text-large">
-                        <span class="line1">ELITE</span>
-                        <span class="line2">HOME RENOVATION</span>
-                        <span class="line3">CARPENTER</span>
-                    </div>
+                    <img src="images/hero-logo.png" alt="Elite Carpenter Home Renovation - Hamilton Ontario" loading="eager">
                 </div>
                 <div class="hero-float-card">
                     <div class="float-card-icon">
