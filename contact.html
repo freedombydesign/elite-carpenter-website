@@ -137,7 +137,7 @@
                 </div>
                 <div class="info-text">
                     <h3>Email</h3>
-                    <p><a href="mailto:elitecarpenterreno@gmail.com">elitecarpenterreno@gmail.com</a></p>
+                    <p><a href="mailto:info@elitecarpenterreno.ca">info@elitecarpenterreno.ca</a></p>
                 </div>
             </div>
 
@@ -230,46 +230,58 @@
 
     <footer>
         <p>&copy; 2026 Elite Carpenter Home Renovation. All rights reserved.</p>
-        <p>Hamilton, Ontario | (416) 526-4116 | elitecarpenterreno@gmail.com</p>
+        <p>Hamilton, Ontario | (416) 526-4116 | info@elitecarpenterreno.ca</p>
     </footer>
 
     <script>
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
 
-        // Handle form submission with WhatsApp/Telegram notifications
+        // Handle form submission with Resend email notifications
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                console.log('Form submitted, sending Telegram notification...');
+                console.log('Form submitted, sending emails via Resend...');
 
                 // Get form data
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData);
                 console.log('Form data:', data);
 
-                // Send FREE Telegram notification and WAIT for it to complete
-                // Switch to /api/whatsapp-notify for paid WhatsApp option
+                // Send emails via Resend (notification to owner + confirmation to customer)
                 try {
-                    const response = await fetch('/api/telegram-notify', {
+                    const response = await fetch('/api/resend-notify', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
                     });
                     const result = await response.json();
-                    console.log('Telegram API response:', result);
+                    console.log('Resend API response:', result);
 
                     if (result.success) {
-                        console.log('✅ Telegram notification sent successfully!');
+                        console.log('✅ Emails sent successfully via Resend!');
+                        console.log('Owner email ID:', result.ownerEmailId);
+                        console.log('Customer email ID:', result.customerEmailId);
                     } else {
-                        console.error('❌ Telegram notification failed:', result);
+                        console.error('❌ Email sending failed:', result);
                     }
                 } catch (err) {
-                    console.error('❌ Push notification error:', err);
+                    console.error('❌ Email error:', err);
                 }
 
-                // Now submit to Web3Forms
+                // Also send to Telegram for instant notifications (if configured)
+                try {
+                    await fetch('/api/telegram-notify', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                } catch (err) {
+                    console.log('Telegram notification skipped:', err.message);
+                }
+
+                // Now submit to Web3Forms as backup
                 console.log('Submitting to Web3Forms...');
                 this.submit();
             });

@@ -1,0 +1,9 @@
+{
+  "name": "elite-carpenter-website",
+  "version": "1.0.0",
+  "description": "Elite Carpenter Home Renovation website",
+  "private": true,
+  "dependencies": {
+    "resend": "^3.2.0"
+  }
+}
