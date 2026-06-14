@@ -1,0 +1,11 @@
+# robots.txt for Elite Carpenter Home Renovation
+# https://www.elitecarpenterreno.ca
+
+User-agent: *
+Allow: /
+
+# Disallow API endpoints
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://elitecarpenterreno.ca/sitemap.xml
