@@ -8,4 +8,4 @@ Allow: /
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://elitecarpenterreno.ca/sitemap.xml
+Sitemap: https://www.elitecarpenterreno.ca/sitemap.xml

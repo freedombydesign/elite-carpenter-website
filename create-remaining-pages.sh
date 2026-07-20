@@ -1,18 +1,23 @@
+#!/bin/bash
+
+# Fix the JS error in the last page first
+sed -i '' 's/header.scrolled.toggle/header.classList.toggle/g' bathroom-renovation-stoney-creek.html
+
+# Create basement-renovation-stoney-creek.html
+cat > basement-renovation-stoney-creek.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basement Renovation in Ancaster, Ontario | Elite Carpenter Home Renovation</title>
-    <meta name="description" content="Basement finishing in Ancaster. Rec rooms, home offices, rental units for Ancaster Heights and Olde Ancaster homes. Free quotes from Elite Carpenter.">
-    <meta name="keywords" content="basement renovation Ancaster, basement finishing Ancaster, basement contractor Ancaster Ontario, rec room Ancaster, basement apartment Ancaster, Ancaster Heights basement">
+    <title>Basement Renovation in Stoney Creek, Ontario | Elite Carpenter Home Renovation</title>
+    <meta name="description" content="Basement finishing in Stoney Creek. Downtown, Winona, Fruitland homes. Rec rooms, home offices. Free quotes from Elite Carpenter.">
+    <meta name="keywords" content="basement renovation Stoney Creek, basement finishing Stoney Creek, basement contractor Stoney Creek Ontario, Winona basement, Fruitland basement">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.elitecarpenterreno.ca/basement-renovation-ancaster">
-
+    <link rel="canonical" href="https://elitecarpenterreno.ca/basement-renovation-stoney-creek">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -26,16 +31,15 @@
         },
         "areaServed": {
             "@type": "City",
-            "name": "Ancaster",
+            "name": "Stoney Creek",
             "containedInPlace": {
                 "@type": "AdministrativeArea",
                 "name": "Ontario"
             }
         },
-        "description": "Professional basement finishing in Ancaster, Ontario. Rec rooms, home offices, rental units. Heritage and mid-century home expertise."
+        "description": "Professional basement finishing in Stoney Creek, Ontario. Rec rooms, home offices, rental units for all Stoney Creek neighborhoods."
     }
     </script>
-
     <style>
         :root {
             --color-navy: #1e3a5f; --color-navy-dark: #152a45; --color-blue: #2563eb;
@@ -64,37 +68,20 @@
         .btn { display: inline-flex; align-items: center; padding: 0.875rem 1.75rem; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; cursor: pointer; border: none; }
         .btn-primary { background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-navy) 100%); color: var(--color-white); }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3); }
-
         .page-hero { padding: 10rem 2rem 5rem; background: linear-gradient(135deg, var(--color-white) 0%, #dbeafe 100%); text-align: center; }
         .page-hero h1 { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--color-navy); margin-bottom: 1rem; }
         .page-hero h1 span { color: var(--color-blue); }
         .page-hero p { font-size: 1.25rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto 2rem; }
-
         .content-section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
         .content-section h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--color-navy); margin-bottom: 1.5rem; }
         .content-section p { font-size: 1.1rem; color: var(--color-text); line-height: 1.8; margin-bottom: 1.5rem; }
         .content-section ul { list-style: none; margin: 1.5rem 0; }
         .content-section li { padding: 0.75rem 0 0.75rem 2rem; position: relative; font-size: 1.05rem; }
         .content-section li::before { content: ''; position: absolute; left: 0; top: 1rem; width: 10px; height: 10px; background: var(--color-blue); border-radius: 50%; }
-
         .local-box { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 2rem; border-radius: 12px; margin: 2rem 0; }
         .local-box h3 { font-size: 1.3rem; color: var(--color-navy); margin-bottom: 1rem; }
         .local-box p { font-size: 1.05rem; color: var(--color-text); margin-bottom: 0.75rem; }
         .local-box p:last-child { margin-bottom: 0; }
-
-        .ideas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 2rem 0; }
-        .idea-card { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 1.5rem; border-radius: 12px; }
-        .idea-card h4 { font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.5rem; }
-        .idea-card p { font-size: 0.95rem; color: var(--color-text-light); margin: 0; }
-
-        .pricing-section { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 4rem 2rem; margin: 3rem 0; border-radius: 16px; }
-        .pricing-section h3 { font-family: var(--font-display); font-size: 1.75rem; color: var(--color-navy); margin-bottom: 1.5rem; }
-        .pricing-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-        .pricing-tier { background: var(--color-white); padding: 1.5rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .pricing-tier h4 { font-size: 1.1rem; color: var(--color-navy); margin-bottom: 0.5rem; }
-        .pricing-tier .price { font-size: 1.5rem; font-weight: 700; color: var(--color-blue); margin-bottom: 0.5rem; }
-        .pricing-tier p { font-size: 0.9rem; color: var(--color-text-light); }
-
         .cta { padding: 5rem 2rem; background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%); text-align: center; color: var(--color-white); }
         .cta-inner { max-width: 700px; margin: 0 auto; }
         .cta h2 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1rem; }
@@ -104,14 +91,11 @@
         .btn-secondary { background: transparent; border: 2px solid white; color: white; }
         .cta-phone { font-size: 1.25rem; color: var(--color-sky); }
         .cta-phone a { color: inherit; text-decoration: none; }
-
         footer { padding: 3rem 2rem; background: var(--color-navy-dark); color: rgba(255,255,255,0.7); text-align: center; }
         footer p { margin-bottom: 0.5rem; }
-
         @media (max-width: 768px) {
             nav, .phone-link { display: none; }
             .page-hero h1 { font-size: 2.25rem; }
-            .pricing-tiers, .ideas-grid { grid-template-columns: 1fr; }
             .cta-buttons { flex-direction: column; align-items: center; }
         }
     </style>
@@ -135,98 +119,47 @@
             </div>
         </div>
     </header>
-
     <section class="page-hero">
-        <h1>Basement Renovation in <span>Ancaster</span></h1>
-        <p>Turn your unfinished Ancaster basement into premium living space. Rec rooms, home offices, rental units with quality finishes.</p>
+        <h1>Basement Renovation in <span>Stoney Creek</span></h1>
+        <p>Transform your unfinished basement into usable living space. Rec rooms, home offices, rental units for Stoney Creek homeowners.</p>
         <a href="contact.html" class="btn btn-primary">Get a Free Basement Consultation</a>
     </section>
-
     <div class="content-section">
-        <h2>Basement Finishing for Ancaster Homes</h2>
-        <p>Ancaster homes — especially the mid-century bungalows and split-levels in Ancaster Heights on generous lots — often have substantial unfinished basements with huge potential. Olde Ancaster heritage homes near Wilson Street have older basements that can be transformed into usable space. Meadowlands early-2000s homes typically have newer basements ready for finishing.</p>
-        <p>Ancaster's affluent market expects quality basement build-outs. Homeowners want premium finishes, proper systems, and detailed workmanship — not basic contractor-grade finishing.</p>
-        <p>Elite Carpenter Home Renovation handles basement finishing for Ancaster homeowners. We coordinate framing, electrical, plumbing, drywall, flooring, and finishing — managing all trades to deliver the quality Ancaster homeowners expect.</p>
-
+        <h2>Basement Finishing for Stoney Creek Homes</h2>
+        <p>Stoney Creek is divided by the Niagara Escarpment into upper and lower areas. Downtown Stoney Creek, Battlefield, and the lower areas have a mix of older homes — many with unfinished basements ready for renovation. Winona and Fruitland up on the mountain have newer subdivisions, but even newer homes often have unfinished basement space.</p>
+        <p>Elite Carpenter Home Renovation handles basement finishing for Stoney Creek homeowners across all neighborhoods. We coordinate framing, drywall, electrical, plumbing, and flooring so you get a finished basement without managing multiple contractors.</p>
         <div class="local-box">
-            <h3>Ancaster Basement Considerations</h3>
-            <p><strong>Mid-century basements:</strong> Ancaster Heights homes from the 1960s-1970s often have full basements perfect for finishing into rec rooms, home offices, or guest suites.</p>
-            <p><strong>Heritage basements:</strong> Olde Ancaster century homes may have stone foundations or lower ceiling heights. We assess structural conditions and work within the constraints.</p>
-            <p><strong>Escarpment drainage:</strong> Homes near the escarpment edge need proper drainage assessment before basement finishing to prevent moisture issues.</p>
-            <p><strong>Premium expectations:</strong> Ancaster's upscale market expects quality materials, proper subfloor systems (DRIcore for moisture protection), and detailed finishing work.</p>
+            <h3>Stoney Creek Basement Considerations</h3>
+            <p><strong>Upper vs lower Stoney Creek drainage:</strong> Homes in lower Stoney Creek (closer to the lake) may have different drainage considerations than Winona and Fruitland up on the escarpment. We assess basement moisture conditions before starting and choose the right subfloor system (DRIcore vs plywood).</p>
+            <p><strong>Older home foundations:</strong> Downtown Stoney Creek and Battlefield homes from the 1960s-80s may have original foundations that need moisture assessment before finishing.</p>
         </div>
-
         <h2>What's Included in a Basement Renovation</h2>
         <ul>
             <li>Framing (walls, bulkheads, soffits)</li>
             <li>Insulation</li>
-            <li>Subfloor (DRIcore moisture barrier system or plywood)</li>
+            <li>Subfloor (plywood or DRIcore)</li>
             <li>Drywall supply, installation, and finishing</li>
             <li>Electrical (pot lights, outlets, panel upgrades if needed)</li>
-            <li>Plumbing (if adding a bathroom or wet bar)</li>
-            <li>Flooring (luxury vinyl plank, tile, carpet, engineered hardwood)</li>
+            <li>Plumbing (if adding bathroom or wet bar)</li>
+            <li>Flooring (vinyl plank, tile, carpet, engineered hardwood)</li>
             <li>Trim, doors, and painting</li>
-            <li>Egress windows (required for legal bedrooms)</li>
+            <li>Egress windows (required for bedrooms)</li>
         </ul>
-
-        <h2>Popular Basement Ideas for Ancaster Homeowners</h2>
-        <div class="ideas-grid">
-            <div class="idea-card">
-                <h4>Luxury Rec Room</h4>
-                <p>Home theater setups, wet bars, and comfortable seating areas — premium basement entertaining spaces for Ancaster homes.</p>
-            </div>
-            <div class="idea-card">
-                <h4>Professional Home Office</h4>
-                <p>Dedicated workspace with built-in desk areas, proper lighting, and separate entrance options for professionals working from home.</p>
-            </div>
-            <div class="idea-card">
-                <h4>Guest Suite</h4>
-                <p>Bedroom, bathroom, and sitting area for extended family or guests. Requires egress window for code compliance.</p>
-            </div>
-            <div class="idea-card">
-                <h4>Fitness & Wellness Room</h4>
-                <p>Home gym space with rubber flooring, mirrors, and proper ventilation — increasingly popular in Ancaster's affluent market.</p>
-            </div>
-        </div>
-
-        <div class="pricing-section">
-            <h3>How Much Does a Basement Renovation Cost in Ancaster?</h3>
-            <p style="font-size: 1.05rem; color: var(--color-text); margin-bottom: 1.5rem;">Typical Hamilton-area pricing for basement finishing:</p>
-            <div class="pricing-tiers">
-                <div class="pricing-tier">
-                    <h4>Basic Finish</h4>
-                    <div class="price">$25,000+</div>
-                    <p>Framing, drywall, flooring, basic electrical</p>
-                </div>
-                <div class="pricing-tier">
-                    <h4>Full Build-Out</h4>
-                    <div class="price">$60,000+</div>
-                    <p>Bathroom, separate entrance, egress, premium finishes</p>
-                </div>
-            </div>
-            <p style="font-size: 0.95rem; color: var(--color-text-light); margin-top: 1.5rem; text-align: center;">Actual cost depends on your specific basement size, scope, and finishes. We provide detailed quotes after a site visit.</p>
-        </div>
-
         <h2>How Long Does a Basement Renovation Take?</h2>
-        <p>A typical basement finishing project in Ancaster takes 4-8 weeks depending on size and complexity. Adding a bathroom, separate entrance, or egress window adds time. We coordinate all trades so you're not managing multiple contractors.</p>
-
-        <h2>Permits for Ancaster Basement Renovations</h2>
-        <p>Basement renovations in Ontario typically require permits for electrical work, plumbing, framing, and egress windows. We handle permit applications and coordinate inspections to ensure everything meets Ontario Building Code.</p>
-
+        <p>A typical basement finishing project in Stoney Creek takes 4-8 weeks depending on size and complexity. Adding a bathroom or separate entrance adds time. We'll give you a realistic timeline based on your specific project.</p>
         <h2>Our Process</h2>
         <ul>
-            <li><strong>Consultation</strong> - We visit your Ancaster home, assess the basement, and discuss how you want to use the space.</li>
-            <li><strong>Quote</strong> - You get a detailed quote covering all trades, materials, and finishes.</li>
-            <li><strong>Permits</strong> - If required, we handle permit applications.</li>
-            <li><strong>Build</strong> - We coordinate framing, electrical, plumbing, drywall, and finishing trades.</li>
-            <li><strong>Final Walkthrough</strong> - We review the finished basement together before wrapping up.</li>
+            <li><strong>Consultation</strong> - We visit your Stoney Creek home, assess the basement, and discuss your goals.</li>
+            <li><strong>Quote</strong> - You get a detailed quote covering all trades and finishes.</li>
+            <li><strong>Permits</strong> - If required, we handle permit applications and inspections.</li>
+            <li><strong>Build</strong> - We coordinate framing, electrical, plumbing, drywall, and finishing.</li>
+            <li><strong>Final Walkthrough</strong> - We review the finished basement together.</li>
         </ul>
     </div>
-
     <section class="cta">
         <div class="cta-inner">
-            <h2>Ready to Finish Your Ancaster Basement?</h2>
-            <p>Let's talk about what you want to do with the space. Free consultations for Ancaster homeowners.</p>
+            <h2>Ready to Finish Your Stoney Creek Basement?</h2>
+            <p>Let's talk about what you want to do with the space. Free consultations for Stoney Creek homeowners.</p>
             <div class="cta-buttons">
                 <a href="contact.html" class="btn btn-accent">Get a Free Quote</a>
                 <a href="tel:4165264116" class="btn btn-secondary">Call Now</a>
@@ -234,15 +167,16 @@
             <p class="cta-phone">Or call: <a href="tel:4165264116">(416) 526-4116</a></p>
         </div>
     </section>
-
     <footer>
         <p>&copy; 2026 Elite Carpenter Home Renovation Inc. All rights reserved.</p>
-        <p>Ancaster, Ontario | (416) 526-4116 | info@elitecarpenterreno.ca</p>
+        <p>Stoney Creek, Ontario | (416) 526-4116 | info@elitecarpenterreno.ca</p>
     </footer>
-
     <script>
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
     </script>
 </body>
 </html>
+EOF
+
+echo "Created basement-renovation-stoney-creek.html"
